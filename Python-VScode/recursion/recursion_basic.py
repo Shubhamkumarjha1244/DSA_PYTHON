@@ -56,8 +56,8 @@ def replace_pi(str):
         str=str[0]+replace_pi(str[1:])
     return str
 
-def unique_array(arr):
-    if len(arr)==0 or len(arr)==1:
+def unique_array(arr):                              #all unique element in array
+    if len(arr)==0 or len(arr)==1:   
         return arr
     if arr[0]==arr[1]:
         arr=unique_array(arr[1:])
