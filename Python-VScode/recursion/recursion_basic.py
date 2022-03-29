@@ -67,9 +67,29 @@ def unique_array(arr):                              #all unique element in array
 
 
 
-    
-    
+def binary_search_mine(arr,key):       #array is defalut sorted
+    if len(arr)==0:
+        return False
+    mid=(int(len(arr)/2))
+    if arr[mid] == key:
+        return True
+    if key > arr[mid]:
+        return binary_search_mine(arr[mid+1:],key)
+    else:
+        return binary_search_mine(arr[:mid],key)
 
+    
+    
+def binary_search(arr,key,startindex,endindex):       #array is defalut sorted
+    if startindex > endindex:
+        return -1
+    mid=(startindex+endindex)//2
+    if arr[mid] == key:
+        return mid
+    elif key > arr[mid]:
+        return binary_search(arr,key,mid+1,endindex)
+    else:
+        return binary_search(arr,key,startindex,mid-1)
 
 
 
@@ -91,3 +111,7 @@ str='pighdppigsdhjpifssfdpi'
 print(str,'\n',replace_pi(str))
 arr=[1,1,2,3,4,4,4,5,6,6]
 print(arr,'---',unique_array(arr))
+arr=[1,2,3,4,5,6,7,8,9,10,11,12]
+key=16
+print(arr,'---',binary_search_mine(arr,key))
+print(arr,'---',binary_search(arr,key,0,11))
