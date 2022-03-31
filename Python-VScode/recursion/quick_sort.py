@@ -1,30 +1,35 @@
-def swap(arr,p1,p2):
-    temp=arr[p1]
-    arr[p1]=arr[p2]
-    arr[p2]=temp
-    return arr
-
-
-
-
-def quick_sort(arr):
-    if len(arr)==0 or len(arr)==1:
-        return
-    pi=arr[len(arr//2)]
-    i=0
-    j=len(arr)-1
-    while j > i :
-        while arr[i]<pi:
+def partition(arr,st,en):
+    pivot=arr[st]
+    ind=st
+    for i in range(st,en+1):  #seach arr range will change
+        if arr[i] < pivot:
+            ind +=1
+    arr[st],arr[ind] =arr[ind],arr[st]  #swapping
+    i,j=st,en
+    while i > j:   #imp step to swap smaller and greater
+        if arr[i] < pivot:
             i +=1
-        while arr[j]>pi:
+        elif arr[j] >= pivot: 
             j -=1
-        swap(arr,i,j)
-    quick_sort(arr[:mid])
-    quick_sort(arr[mid:])
+        else:
+            arr[i],arr[j]=arr[j],arr[i]
+            i +=1
+            j -=1
+    return ind
+
+    
+def quick_sort(arr,st,en):
+    if st >= en:
+        return 
+    pivot=partition(arr,st,en)
+    quick_sort(arr,st,pivot-1)
+    quick_sort(arr,pivot+1,en)
     return arr
-        
-arr=[100000,1,2,7,6,5,8,9,10]
-print(quick_sort(arr))
-  
+    
 
-
+arr1=[10000,10,3,4,6,11,11,11,11,11]
+en=9
+print('unsorted array---',arr1)
+st=0
+quick_sort(arr1,st,en)
+print('sorted array-----',arr1)
