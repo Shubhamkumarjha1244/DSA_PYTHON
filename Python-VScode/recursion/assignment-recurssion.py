@@ -36,3 +36,44 @@ def multiply(num1,num2):
 n1=5
 n2=10
 print(multiply(1,34))
+
+
+def star_in_string(str):
+    if len(str)==0 or len(str)==1:
+        return str
+    elif str[0]==str[1]:
+        return str[0]+'*'+star_in_string(str[1:])
+    else:
+        return str[0]+star_in_string(str[1:])
+
+s='aaaabbbbcccc'
+print(star_in_string(s))
+
+
+
+def count_zero(num):
+    if int(num/10)==0:
+        return 1
+    elif n%10 ==0:
+        return 1+count_zero(int(num/10))
+    else:
+        return count_zero(int(num/10))
+
+
+num=100
+print(count_zero(num))
+print(1/10)
+
+
+def stair_problem(steps):
+    if steps==1:
+        return 1
+    elif steps==2:
+        return 2
+    elif steps==3:
+        return 4
+    
+    return stair_problem(steps-1)+stair_problem(steps-2)+stair_problem(steps-3)
+    
+n=10
+print(stair_problem(n))
