@@ -35,5 +35,5 @@ def phone_combination(num):
     return output
 
 
-combination=2345
+combination=23
 print(phone_combination(combination))
