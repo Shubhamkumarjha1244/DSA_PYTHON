@@ -15,7 +15,7 @@ def combi(num):
         return 'tuv'
     if num==9:
         return 'wxyz'
-    return ''      
+    return ' '      
 
 def print_phone_combination(num,output):
 
@@ -31,6 +31,6 @@ def print_phone_combination(num,output):
         print_phone_combination(smaller_num,newoutput)
 
 
-combination=34
+combination=23
 print_phone_combination(combination,'')
 

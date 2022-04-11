@@ -1,21 +1,36 @@
-class Node:
-    def __init__(self,data):
-        self.data=data
-        self.next=None
+def letter(num):
+        if num==2:
+            return 'abc'
+        if num==3:
+            return 'def'
+        if num==4:
+            return 'ghi'
+        if num==5:
+            return 'jkl'
+        if num==6:
+            return 'mno'
+        if num==7:
+            return 'pqrs'
+        if num==8:
+            return 'tuv'
+        if num==9:
+            return 'wxyz'
+        return ' '
+def letterCombinations(digits: str):
+        if len(digits)==0:
+            output=[]
+            output.append('')
+            return output
+        ones=(int(digits))%10
+        alpha=letter(ones)
+        small_num=(int(digits))//10
+        
+        output=[]
+        for i in alpha:
+            for j in letterCombinations(str(small_num)):
+                combi=i+j
+                output.append(combi)
+        return output
+                
 
-
-
-def inputLL():
-    inputlist=[int(ele) for ele in input().split()]
-
-    for curr in inputlist:
-
-        if curr == -1:
-            break
-
-        head=None
-        tail=None
-
-        while
-
-
+letterCombinations('23')
