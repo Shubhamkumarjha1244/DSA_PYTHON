@@ -9,7 +9,9 @@ def path_finder(x,y,n,maze,solution):
 
     if x==n-1 and y==n-1:
         solution[x][y]=1
-        print(solution)
+        for i in range(n):
+            print(solution[i],end='\n')
+        print()
         return
     if x<0 or y<0 or x>n-1 or y>n-1 or maze[x][y]==0 or solution[x][y]==1:
         return
