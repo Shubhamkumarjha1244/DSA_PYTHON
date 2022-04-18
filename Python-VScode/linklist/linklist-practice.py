@@ -1,1 +1,3 @@
-print([]+[0])
+num=set([])
+num.add([1,2])
+print(num)

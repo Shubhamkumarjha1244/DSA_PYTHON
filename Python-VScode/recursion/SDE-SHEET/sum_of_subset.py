@@ -4,10 +4,10 @@ def sum_subset(arr,ans):
         return
     ele=arr[0]
     sum_subset(arr[1:],ans)
-    new_ans=ans+ele
+    new_ans=ele+ans
     sum_subset(arr[1:],new_ans)
 
 
 
-arr=[5,2,1]
+arr=[3,1,2]
 sum_subset(arr,0)
