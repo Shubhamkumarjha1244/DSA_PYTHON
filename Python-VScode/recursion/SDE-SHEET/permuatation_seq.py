@@ -85,8 +85,7 @@ def K_permutation(num,rank):
     while True:
         ans=ans+''+str(numList[rank//fac])
         numList.remove(numList[rank//fac])
-        if len(numList)==0:
-            break
+        if len(numList)==0: break
         rank=rank%fac
         fac=fac//len(numList)
     return ans
