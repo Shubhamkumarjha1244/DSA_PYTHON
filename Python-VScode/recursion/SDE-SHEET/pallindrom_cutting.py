@@ -9,16 +9,15 @@ def is_pallindrom(stri,start,end):
 def pallindrom(ind,stri,ans,output):
     if ind==len(stri):
         output.append(ans)
-        return
     for i in range(ind,len(stri)):
         if is_pallindrom(stri,ind,i) is True:
-            pallindrom(i+1,stri,ans+[stri[ind:i+1]],output)            
+            pallindrom(i+1,stri,ans+[stri[ind:i+1]],output)        #bhanu question  
 
 def pallindrom_partition(stri):
     output=[]
     pallindrom(0,stri,list(),output)
     return output
 
-stri='aab'
+stri='aabb'
 print(pallindrom_partition(stri))
 
