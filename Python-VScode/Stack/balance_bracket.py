@@ -27,7 +27,7 @@
 # stri='[[[]]]'
 # print(validated_bracket(stri))
 
-
+#teach
 
 
 def validate(stri):
