@@ -31,6 +31,6 @@ class queue:
             return -1
         return self.__head.data
     def isEmpty(self):
-        return self.__count==0
+        return self.size()==0
 
         

@@ -1,4 +1,4 @@
-from Queue_using_LL import queue
+from Queue_using_twoStack import queue
 
 shubham=queue()
 print('Queue is Empty',shubham.isEmpty())
