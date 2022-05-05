@@ -5,9 +5,6 @@ class queue:
         self.__stack2=[]
     
     def enqueue(self,value):                 #PUT
-        if len(self.__stack1)==0:
-            self.__stack1.append(value)
-            return
         while len(self.__stack1)>0:
             self.__stack2.append(self.__stack1.pop())
         self.__stack1.append(value)
