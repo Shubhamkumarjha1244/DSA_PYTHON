@@ -13,8 +13,11 @@ def sort_a_stack(stack):
     sort_a_stack(stack)
     arrange_stack(stack,temp)
     return
+stack=[]
+for i in range(int(input('Size of stack--'))):
+    stack.append(int(input('enter Element--')))
 
-stack=[6,8,2,3,5,7,-1,9876543]
-print('unsorted stack---',stack)
 sort_a_stack(stack)
-print('sorted stack(highest one on top or stack[-1]---',stack)
+print('sorted stack(highest one on top or stack[-1]---',)
+while stack:
+    print(stack.pop())
