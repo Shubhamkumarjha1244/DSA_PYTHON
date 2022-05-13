@@ -15,7 +15,7 @@ def maximum_sliding_window(list,k):
 import collections
 
 def maximum_in_sliding_window(arr,k):
-    de=collections.deque()
+    de=collections.deque() #dobly queue
     max_list=[]
     for i in range(len(arr)):
         if len(de)!=0 and de[0] < i-k+1:
