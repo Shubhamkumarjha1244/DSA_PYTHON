@@ -18,16 +18,17 @@ def maximum_in_sliding_window(arr,k):
     de=collections.deque() #dobly queue
     max_list=[]
     for i in range(len(arr)):
-        if len(de)!=0 and de[0] < i-k+1:
+        if len(de)!=0 and de[-1] == i-k:
             de.pop()
         while len(de)!=0 and arr[de[-1]]<=arr[i]:
             de.popleft()
         de.append(i)
         if i>=k-1:
             max_list.append(arr[de[0]])
+        print(de)
     return max_list
 
-arr=[20,25]
+arr=[25,1,1,1,1,1]
 k=2
 print(maximum_sliding_window(arr,k))
 print(maximum_in_sliding_window(arr,k))

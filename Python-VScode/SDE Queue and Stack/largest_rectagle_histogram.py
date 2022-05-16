@@ -20,7 +20,6 @@ def largest_rectangle_histogram_using_2_pass(arr):
     # print("smallest element start side se--",shr)
     for i in range(len(arr)):
         arealist[i]=arr[i]*(shl[i]-shr[i]-1)
-    print(arealist)
     return max(arealist)
 
 # arr=[2,1,5,6,2,3,2,1,5,6,2,3,]
@@ -31,7 +30,7 @@ def largest_rectangle_histogram_using_2_pass(arr):
 def largest_rectangle_histogram_using_1_pass(arr):
         
     stack=[]
-    area=[0]*len(arr)
+    area=0
     arr.append(0)
     for i in range(0,len(arr),1):
         while len(stack)!=0 and arr[i]<=arr[stack[-1]]:
@@ -40,33 +39,32 @@ def largest_rectangle_histogram_using_1_pass(arr):
                 height=arr[ind]
                 if len(stack)!=0:leftlower=stack[-1]
                 else:leftlower=-1
-                area[ind]=(rightlower-leftlower-1)*height
+                area=max(area,(rightlower-leftlower-1)*height)
         stack.append(i)
-    print(area)
-    return max(area)
-#SDE sheet
-def largest_rectangle_youtube(arr):
-    stack=[]
-    n=len(arr)
-    area=[0]*n
-    for i in range(n+1):
-        while (len(stack)!=0) and ((i==n) or (arr[stack[-1]] >= arr[i])):
-                ind=stack[-1]
-                height=arr[ind]
-                stack.pop
-                if len(stack)==0:width=i
-                else:width=i-stack[-1]-1
-                area[ind]=width*height   
-        stack.append(i)
-   
     return area
+# #SDE sheet
+# def largest_rectangle_youtube(arr):
+#     stack=[]
+#     n=len(arr)
+#     area=0
+#     for i in range(n+1):
+#         while (len(stack)!=0) and ((i==n) or (arr[stack[-1]] >= arr[i])):
+#                 ind=stack[-1]
+#                 height=arr[ind]
+#                 stack.pop
+#                 if len(stack)==0:width=i
+#                 else:width=i-stack[-1]-1
+#                 area=max(area,width*height)   
+#         stack.append(i)
+   
+    # return area
 
 
 arr=[2,1,5,6,2,3]
 print(arr)
 print(largest_rectangle_histogram_using_2_pass(arr))
 print(largest_rectangle_histogram_using_1_pass(arr))
-print(largest_rectangle_youtube(arr))
+# print(largest_rectangle_youtube(arr))
 
 #teacher
 

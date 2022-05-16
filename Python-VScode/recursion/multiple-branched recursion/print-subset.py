@@ -5,4 +5,4 @@ def printsubset(str,ans):
     printsubset(str[1:],ans)
     incl=str[0]+ans
     printsubset(str[1:],incl)
-printsubset('ab','')
+printsubset('23','')
