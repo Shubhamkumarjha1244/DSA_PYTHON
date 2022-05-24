@@ -1,7 +1,6 @@
 def power(num,power):
     ans=1
-    for i in range(power):
-        ans=ans*num
+    for i in range(power):ans=ans*num
     return ans
 def nth_root(st,en,number,root):
     while en-st>1e-6:
