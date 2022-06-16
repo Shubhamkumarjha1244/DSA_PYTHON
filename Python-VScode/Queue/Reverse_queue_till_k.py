@@ -22,6 +22,5 @@ for i in range(k):
     stack.append(q.get())
 for i in range(k):
     q.put(stack.pop())
-
 while q.qsize()>0:
     print(q.get())

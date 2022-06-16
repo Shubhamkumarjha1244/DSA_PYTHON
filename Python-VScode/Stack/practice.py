@@ -1,4 +1,20 @@
+class A:
+	x=10
+	pass
+class B(A):
+	#x=2
+	pass
+class C:
+	pass
+class D:
+	x=9
+	pass
+class F(D):
+	x=5
+	pass
+class E(B,C,F):
+	pass
 
-for i in range(100000000):
-	if int((0 + i)/2)!=i//2:
-		print(false)
+c=E()
+print(c.x)
+

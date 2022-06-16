@@ -22,8 +22,27 @@ def Search_element_in_rotated_sorted_array(arr,ele):
                 print("en2--",en)         
     return -1
 
-arr=[4,5,6,7,0,1,2,3]
+
+
+def Search_pivot_in_rotated_sorted_array(arr):
+    st=0
+    en=len(arr)-1
+    while st<=en:
+        mid=(st+en)//2
+        if arr[mid-1]>arr[mid] and arr[mid+1]>arr[mid] :
+            return mid
+        if arr[st]<arr[mid]:
+                st=mid+1
+                print("Start",st)
+        else:
+           en=mid-1
+           print("End",en)         
+    return -1
+arr=[4,5,6,7,1]
 ele=10
 print(Search_element_in_rotated_sorted_array(arr,ele))
+print(Search_pivot_in_rotated_sorted_array(arr))
+
+
         
 
