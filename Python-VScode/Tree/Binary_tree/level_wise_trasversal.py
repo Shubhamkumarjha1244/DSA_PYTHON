@@ -20,9 +20,26 @@ def level_wise():
             node.left=generate_binary_tree.BinaryTreeNode(left_node_data)
             qu.put(node.left)
     return root
+
+def print_tree_levelwise(root):
+    if not(root):return
+    qu=queue.Queue()
+    qu.put(root)
+    while not(qu.empty()):
+        node=qu.get()
+        print(node.data,end=':')
+        if node.right:
+            print('R:',node.right.data,end=' ')
+            qu.put(node.right)
+        if node.left:
+            print('L:',node.left.data,end='')
+            qu.put(node.left)
+        print()
     
+        
+
 
 tree=generate_binary_tree.Binary_tree()
 root=level_wise()
-print('----------------BINARY--TREE------------')
-tree.print_binary_tree(root)
+print('----------------BINARY--TREE-levelwise--Printing------------')
+print_tree_levelwise(root)
