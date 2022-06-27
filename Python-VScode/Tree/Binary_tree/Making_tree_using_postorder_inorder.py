@@ -1,5 +1,5 @@
 import class_level_wise_trasversal
-
+#tale care of left and right direction
 class BinaryTreeNode:
     def __init__(self,val):
         self.data=val
@@ -27,4 +27,4 @@ post=[4,5,2,6,7,3,1]
 inn=[4,2,5,1,6,3,7]
 root=tree_using_post_inn(inn,post)
 tree=class_level_wise_trasversal.level_wise_trans()
-tree.print_tree_levelwise(root)
+tree.print_tree_levelwise(root) 
