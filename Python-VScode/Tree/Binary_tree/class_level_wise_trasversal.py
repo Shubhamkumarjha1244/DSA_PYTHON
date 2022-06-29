@@ -1,5 +1,10 @@
-import generate_binary_tree
 import queue
+
+class BinaryTreeNode:
+    def __init__(self,val):
+        self.data=val
+        self.left=None
+        self.right=None
 
 class level_wise_trans:
     def input_level_wise(self):
@@ -7,20 +12,20 @@ class level_wise_trans:
         if root_data==-1:
             return
         qu=queue.Queue()
-        root=generate_binary_tree.BinaryTreeNode(int(root_data))
+        root=BinaryTreeNode(int(root_data))
         qu.put(root)
         while qu.empty()!=True:
             node=qu.get()
-            print("Enter right data of->",node.data)
-            right_node_data=int(input())
             print("Enter left data of->",node.data)
             left_node_data=int(input())
-            if right_node_data!=-1:
-                node.right=generate_binary_tree.BinaryTreeNode(right_node_data)
-                qu.put(node.right)
+            print("Enter right data of->",node.data)
+            right_node_data=int(input())
             if left_node_data!=-1:
-                node.left=generate_binary_tree.BinaryTreeNode(left_node_data)
+                node.left=BinaryTreeNode(left_node_data)
                 qu.put(node.left)
+            if right_node_data!=-1:
+                node.right=BinaryTreeNode(right_node_data)
+                qu.put(node.right)
         return root
 
     def print_tree_levelwise(self,root):
@@ -30,10 +35,10 @@ class level_wise_trans:
         while not(qu.empty()):
             node=qu.get()
             print(node.data,end=':')
-            if node.right:
-                print('R:',node.right.data,end=' ')
-                qu.put(node.right)
             if node.left:
-                print('L:',node.left.data,end='')
+                print('L:',node.left.data,end=' ')
                 qu.put(node.left)
+            if node.right:
+                print('R:',node.right.data,end='')
+                qu.put(node.right)
             print()
