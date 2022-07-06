@@ -18,7 +18,7 @@ def right_view(root,arr,level=0):
 tree=class_level_wise_trasversal.level_wise_trans()
 root=tree.input_level_wise()
 arr=[]
-print('------sheet-way-------')
+
 left_view(root,arr)
 print(arr)
 arr=[]
