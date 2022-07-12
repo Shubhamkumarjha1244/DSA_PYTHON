@@ -9,9 +9,10 @@ import class_level_wise_trasversal
 #     bottom_view_BT(root.right,i+1,dic)
 
 
-def bottom_view_using_queue(root,dic):
+def bottom_view_using_queue(root):
     qu=Queue()
     i=0
+    dic={}
     qu.put([root,i])
     while not qu.empty():
         temp=qu.get()
@@ -26,7 +27,7 @@ def bottom_view_using_queue(root,dic):
 
 tree=class_level_wise_trasversal.level_wise_trans()
 root=tree.input_level_wise()
-dic={}
+
 # bottom_view_BT(root,0,dic)
-bottom_view_using_queue(root,dic)
+bottom_view_using_queue(root)
 # print(dic)

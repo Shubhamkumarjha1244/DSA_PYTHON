@@ -1,9 +1,10 @@
 import class_level_wise_trasversal
 import queue
 
-def top_view_BT(root,dic):
+def top_view_BT(root):
     qu=queue.Queue()
     i=0
+    dic={}
     qu.put([root,i])
     while not qu.empty():
         temp=qu.get()
@@ -20,5 +21,5 @@ def top_view_BT(root,dic):
 
 tree=class_level_wise_trasversal.level_wise_trans()
 root=tree.input_level_wise()
-top_view_BT(root,{})
+top_view_BT(root)
         
