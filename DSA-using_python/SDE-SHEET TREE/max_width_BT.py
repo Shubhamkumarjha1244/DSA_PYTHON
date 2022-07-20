@@ -9,9 +9,6 @@ def max_width(root):
     max_width=1
     while qu.empty()==False:
         level=qu.get()
-        if len(level)==0:
-            print('hi')
-            break
         next_level=[]
         for ele in level:
             node=ele[0]
