@@ -50,29 +50,38 @@ class bst:
     def insert_bst(self,val):
         self.root=self.insert_bst_helper(self.root,val)
         self.count+=1
-    def delete_node(self,root):
-        if root==None:return
-        if root.left==None and root.right==None :return
-        if root.left==None or root.right==None :
-            if root.left:return root.left
-            else:return root.right
-        else:
-            root=root.right
-            root.right=self.delete_node(root.right)
-            return root
+    
     def delete_bst_helper(self,root,val):
-        if root==None: return root
-        if root.data==val:
-            root=self.delete_node(root)
+        if root==None:return False ,root
         if root.data>val:
-            self.delete_bst_helper(root.left,val) 
+            deleted,dele=self.delete_bst_helper(root.left,val)
+            root.left=dele
+            return deleted,root
+        if root.data<val:
+            deleted,dele=self.delete_bst_helper(root.right,val)
+            root.right=dele
+            return deleted,root
+        if root.left==None and root.right==None:
+            return True, None
+        if root.left==None or root.right==None:
+            if root.left:return True,root.left
+            if root.right:return True,root.right
         else:
-            self.delete_bst_helper(root.right,val)
-
-
+            curr=root.right
+            while curr.left!=None:
+                curr=curr.left
+            root.data=curr.data
+            root.right=self.delete_bst_helper(root.right,curr.data)[1]
+            return True,root
 
     def delete_bst(self,val):
-        self.delete_bst_helper(self.root,val)
+        isdelete=self.delete_bst_helper(self.root,val)
+        if isdelete[0]==True:
+            self.count-=1
+            self.root=isdelete[1]
+
+        
+        
     def search_bst_helper(self,root,val):
         if root==None:return -1
         elif root.data==val: return val
@@ -91,7 +100,7 @@ bst1.insert_bst(1)
 bst1.insert_bst(2)
 bst1.insert_bst(9)
 bst1.insert_bst(10)
-bst1.insert_bst(11)
+bst1.insert_bst(10)
 bst1.insert_bst(15)
 bst1.insert_bst(7)
 bst1.insert_bst(4)
@@ -100,5 +109,5 @@ print()
 print(bst1.search_bst(6))
 print(bst1.count_bst())
 print('------')
-bst1.delete_bst(9)
+bst1.delete_bst(10)
 bst1.print_bst()
