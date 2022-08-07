@@ -10,7 +10,8 @@ class priorityNode:
 class PriorityQueue_min:
     def __init__(self):
         self.arr=[]
-    
+    def getsize(self):
+        return len(self.arr)
     def percolate_up(self):
         pos=len(self.arr)-1
         while pos>0:
@@ -64,7 +65,8 @@ class PriorityQueue_min:
 class PriorityQueue_max:
     def __init__(self):
         self.arr=[]
-
+    def getsize(self):
+        return len(self.arr)
     def percolate_up(self):
         pos=len(self.arr)-1
         while pos>0:
@@ -151,10 +153,11 @@ max_priority_queue.insert(a3)
 max_priority_queue.insert(a4)
 max_priority_queue.insert(a5)
 max_priority_queue.insert(a6)
-
-
+print("-----size-----")
+print(max_priority_queue.getsize())
+print(min_priority_queue.getsize())
+print("----end----")
 print(min_priority_queue.get_min_priority())
-print('hi')
 print(min_priority_queue.delete_min())
 print(min_priority_queue.delete_min())
 print(min_priority_queue.delete_min())
