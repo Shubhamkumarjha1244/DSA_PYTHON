@@ -64,6 +64,7 @@ import queue
 def deckRevealedIncreasing(deck):
         sorted_deck=sorted(deck)
         qu=queue.Queue()
+        qu.
         for i in range(0,len(deck)):qu.put(i)
         for i in range(0,len(deck)):
             
