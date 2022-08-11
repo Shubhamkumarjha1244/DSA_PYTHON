@@ -33,7 +33,7 @@ def down_heapyfy_till(input,end):
         elif mini==right_val:
             input[i],input[2*i+2]=input[2*i+2],input[i]
             i=(2*i+2)
-
+#we can make heap_down in one function
 def make_heap(input):
     non_leaf=len(input)//2
     for i in range(non_leaf-1,-1,-1):

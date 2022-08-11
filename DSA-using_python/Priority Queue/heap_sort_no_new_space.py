@@ -1,6 +1,6 @@
 
 def heap_insertion(input):
-    for i in range(len(input)):
+    for i in range(len(input)-1,-1,-1):
         coculate_up(input,i)
     return input
 def coculate_up(arr,i):
