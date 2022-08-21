@@ -1,6 +1,5 @@
-import heapq
-import queue
-import copy
+import heapq,queue,copy
+
 def buy_the_ticket(arr,pos):
     qu=queue.Queue()
     heap=copy.deepcopy(arr)
