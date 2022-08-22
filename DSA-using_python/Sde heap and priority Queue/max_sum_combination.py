@@ -68,11 +68,11 @@ Explanation 2:
  9   (A : 4) + (B : 5)
  9   (A : 3) + (B : 6)
  8   (A : 3) + (B : 5)'''
-
+#not opimised
 
 import heapq
 def solve(A, B, C):
-    ans=[]
+    ans=[] 
     for ele_a in A:
         for ele_b in B:
             ans.append(ele_a*ele_b)
