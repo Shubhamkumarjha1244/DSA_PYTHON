@@ -14,6 +14,32 @@ class generic_tree_class:
         for child in root.children: #this is base case as At leaf loof will not run and it automatically return
             self.printgenericTree(child)
     
+    def inputgenericTree_without_num_children(self):
+        val=int(input())
+        if val==-1:return
+        root=genericTree(val)
+        while True:
+            child=self.inputgenericTree_without_num_children() #for that generic sub_tree
+            if child==None:break  #jab none aane laga matlab aab aur child nahi hai
+            root.children.append(child)
+        return root
+    def inputgenericTree(self):
+        root_val=int(input('Enter value : '))
+        if root_val==-1:return
+        root=genericTree(root_val)
+
+        no_children=int(input('Enter number of children of '+str(root_val)+':'))
+        for i in range(no_children):
+            print("Enter value of",i+1 ,"th child of ",root_val,' : ')
+            child=self.inputgenericTree()
+            root.children.append(child)
+        return root
+
+            
+
+
+
+    
 
 
 n1=genericTree(6)
@@ -32,6 +58,8 @@ n1.children=[n2,n3,n4,n5]
 n3.children=[n6,n7,n11]
 n6.children=[n8,n9,n10]
 n10.children=[n12]
+
 gt=generic_tree_class()
-gt.printgenericTree(n1)
+root=gt.inputgenericTree()
+gt.printgenericTree(root)
 
