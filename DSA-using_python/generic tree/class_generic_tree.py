@@ -34,6 +34,27 @@ class generic_tree_class:
             child=self.inputgenericTree()
             root.children.append(child)
         return root
+    
+    def no_of_node(self,root):
+        if root==None:return 0
+        child_no=0
+        for child in root.children:
+            child_no+=self.no_of_node(child)
+        return 1+child_no
+    def sum_of_children(self,root):
+        if root==None:return 0
+        child_sum=root.data
+        for  child in root.children:
+            child_sum+=self.sum_of_children(child)
+        return child_sum
+
+    def height_of_generic_tree(self,root):
+        if root==None:return 0
+        child_height=0
+        for child in root.children:
+            child_height=max(child_height,self.height_of_generic_tree(child))
+        return 1+child_height
+
 
             
 
@@ -59,7 +80,13 @@ n3.children=[n6,n7,n11]
 n6.children=[n8,n9,n10]
 n10.children=[n12]
 
+
 gt=generic_tree_class()
-root=gt.inputgenericTree()
-gt.printgenericTree(root)
+gt.printgenericTree(n1)
+print(gt.no_of_node(n1))
+print(gt.sum_of_children(n1))
+print(gt.height_of_generic_tree(n1))
+# root=gt.inputgenericTree()
+
+
 
