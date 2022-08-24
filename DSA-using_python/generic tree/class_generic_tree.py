@@ -1,3 +1,4 @@
+import queue
 class genericTree:
     def __init__(self,val):
         self.data=val
@@ -55,6 +56,43 @@ class generic_tree_class:
             child_height=max(child_height,self.height_of_generic_tree(child))
         return 1+child_height
 
+    def largest_node(self,root):
+        if root==None:return 0
+        largest=root.data
+        for child in root.children:
+            largest=max(largest,self.largest_node(child))
+        return largest
+    def level_wise_input(self):
+        root_val=int(input('Enter value of root'))
+        if root_val==-1:return
+        root=genericTree(root_val)
+        qu=queue.Queue()
+        qu.put(root)
+        while qu.empty()!=True:
+            node=qu.get()
+            no_children=int(input('Enter no of children of '+str(node.data)+' : '))
+            for i in range(no_children):
+                child_val=int(input('Enter value of child of '+str(node.data)+' : '))
+                child=genericTree(child_val)
+                node.children.append(child)
+                qu.put(child)
+        return root
+
+    def print_levelwise(self,root):
+        if root==None:return
+        qu=queue.Queue()
+        qu.put(root)
+        while qu.empty()!=True:
+            node=qu.get()
+            print(node.data,end=' : ')
+            for child in node.children:
+                print(child.data,end=',')
+                qu.put(child)
+            print()
+        
+            
+
+
 
             
 
@@ -69,7 +107,7 @@ n3=genericTree(8)
 n4=genericTree(7)
 n5=genericTree(1)
 n6=genericTree(11)
-n7=genericTree(15)
+n7=genericTree(20543)
 n8=genericTree(9)
 n9=genericTree(6)
 n10=genericTree(5)
@@ -80,13 +118,16 @@ n3.children=[n6,n7,n11]
 n6.children=[n8,n9,n10]
 n10.children=[n12]
 
-
-gt=generic_tree_class()
-gt.printgenericTree(n1)
-print(gt.no_of_node(n1))
-print(gt.sum_of_children(n1))
-print(gt.height_of_generic_tree(n1))
 # root=gt.inputgenericTree()
+gt=generic_tree_class()
+root=gt.level_wise_input()
+gt.printgenericTree(root)
+print(gt.no_of_node(root))
+print(gt.sum_of_children(root))
+print(gt.height_of_generic_tree(root))
+print(gt.largest_node(root))
+gt.print_levelwise(root)
+
 
 
 
