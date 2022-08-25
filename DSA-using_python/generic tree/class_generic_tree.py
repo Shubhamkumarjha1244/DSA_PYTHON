@@ -101,32 +101,32 @@ class generic_tree_class:
     
 
 
-n1=genericTree(6)
-n2=genericTree(2)
-n3=genericTree(8)
-n4=genericTree(7)
-n5=genericTree(1)
-n6=genericTree(11)
-n7=genericTree(20543)
-n8=genericTree(9)
-n9=genericTree(6)
-n10=genericTree(5)
-n11=genericTree(3)
-n12=genericTree(12)
-n1.children=[n2,n3,n4,n5]
-n3.children=[n6,n7,n11]
-n6.children=[n8,n9,n10]
-n10.children=[n12]
+# n1=genericTree(6)
+# n2=genericTree(2)
+# n3=genericTree(8)
+# n4=genericTree(7)
+# n5=genericTree(1)
+# n6=genericTree(11)
+# n7=genericTree(20543)
+# n8=genericTree(9)
+# n9=genericTree(6)
+# n10=genericTree(5)
+# n11=genericTree(3)
+# n12=genericTree(12)
+# n1.children=[n2,n3,n4,n5]
+# n3.children=[n6,n7,n11]
+# n6.children=[n8,n9,n10]
+# n10.children=[n12]
 
-# root=gt.inputgenericTree()
-gt=generic_tree_class()
-root=gt.level_wise_input()
-gt.printgenericTree(root)
-print(gt.no_of_node(root))
-print(gt.sum_of_children(root))
-print(gt.height_of_generic_tree(root))
-print(gt.largest_node(root))
-gt.print_levelwise(root)
+# # root=gt.inputgenericTree()
+# gt=generic_tree_class()
+# root=gt.level_wise_input()
+# gt.printgenericTree(root)
+# print(gt.no_of_node(root))
+# print(gt.sum_of_children(root))
+# print(gt.height_of_generic_tree(root))
+# print(gt.largest_node(root))
+# gt.print_levelwise(root)
 
 
 
