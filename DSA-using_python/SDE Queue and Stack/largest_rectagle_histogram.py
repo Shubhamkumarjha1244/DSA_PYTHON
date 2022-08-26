@@ -31,6 +31,7 @@ def largest_rectangle_histogram_using_1_pass(arr):
         
     stack=[]
     area=0
+    ans=[]
     arr.append(0)
     for i in range(0,len(arr),1):
         while len(stack)!=0 and arr[i]<=arr[stack[-1]]:
@@ -39,8 +40,11 @@ def largest_rectangle_histogram_using_1_pass(arr):
                 height=arr[ind]
                 if len(stack)!=0:leftlower=stack[-1]
                 else:leftlower=-1
-                area=max(area,(rightlower-leftlower-1)*height)
+                print(rightlower,leftlower,height)
+                ans.append(((rightlower-leftlower)-1)*height)
+                area=max(area,(rightlower-leftlower-1)*height)   #vvi rember that area data will not come sequencelly its came as per pop.
         stack.append(i)
+    print(ans)
     return area
 # #SDE sheet
 # def largest_rectangle_youtube(arr):
