@@ -3,14 +3,14 @@
 
 # # class recursion:
 # #     def __init__(self):
-# #         self.output=[]
+# #         output=[]
         
 
 # #     def total_subset(self,arr):
 # #         if len(arr)==0:
 # #             return ['']
 # #         first_ele=str(arr[0])
-# #         second_subset=self.total_subset(arr[1:])
+# #         second_subset=total_subset(arr[1:])
 # #         ans=[]
 # #         for ele in second_subset:
 # #             ans.append(first_ele+ele)
@@ -19,13 +19,13 @@
         
 # #     def total_combination(self,pos,arr,target,ans):
 # #         if target==0 and pos<len(arr):
-# #             self.output.append(ans)
+# #             output.append(ans)
 # #             return
 # #         if pos>=len(arr) or target<0:
 # #             return 
         
-# #         self.total_combination(pos,arr,target-arr[pos],ans+[arr[pos]])
-# #         self.total_combination(pos+1,arr,target-arr[pos+1],ans+[arr[pos+1]])
+# #         total_combination(pos,arr,target-arr[pos],ans+[arr[pos]])
+# #         total_combination(pos+1,arr,target-arr[pos+1],ans+[arr[pos+1]])
 
 
 
@@ -37,7 +37,7 @@
 # #         for i in range(len(arr)):
 # #             per=str(arr[i])
 # #             rest=arr[:i]+arr[i+1:]
-# #             for ele in self.total_permutation(rest):
+# #             for ele in total_permutation(rest):
 # #                 ans.append(per+ele)
 # #         return ans
 
@@ -87,5 +87,28 @@
 #     for i in range(k):
 #         ans.append(heapq._headpop_max(arr))
 #     return ans
+import class_level_wise_trasversal
+def verti(root,row,col,dic):
+        if root==None:return
+        if row not in dic.keys():
+            dic[row]={}
+            if col not in dic[row].keys():
+                dic[row][col]=[]  
+        print(row,col)
+        dic[row][col].append(root.data)
+        verti(root.left,row-1,col+1,dic)
+        verti(root.right,row+1,col+1,dic)
+def verticalTraversal(root):
+        dic={}
+        verti(root,0,0,dic)
+        ans=[]
+        for key in sorted(dic.keys()):  
+            for k in key.keys():
+                ans.append(sorted(dic[key][k]))
+        return ans
 
 
+bt=class_level_wise_trasversal.level_wise_trans()
+root=bt.input_level_wise()
+bt.print_tree_levelwise(root)
+print(verticalTraversal(root))
