@@ -1,114 +1,151 @@
+# # # import queue
+
+
+# # # class recursion:
+# # #     def __init__(self):
+# # #         output=[]
+        
+
+# # #     def total_subset(self,arr):
+# # #         if len(arr)==0:
+# # #             return ['']
+# # #         first_ele=str(arr[0])
+# # #         second_subset=total_subset(arr[1:])
+# # #         ans=[]
+# # #         for ele in second_subset:
+# # #             ans.append(first_ele+ele)
+# # #             ans.append(ele)
+# # #         return ans
+        
+# # #     def total_combination(self,pos,arr,target,ans):
+# # #         if target==0 and pos<len(arr):
+# # #             output.append(ans)
+# # #             return
+# # #         if pos>=len(arr) or target<0:
+# # #             return 
+        
+# # #         total_combination(pos,arr,target-arr[pos],ans+[arr[pos]])
+# # #         total_combination(pos+1,arr,target-arr[pos+1],ans+[arr[pos+1]])
+
+
+
+        
+# # #     def total_permutation(self,arr):
+# # #         if len(arr)==0:
+# # #             return [""]
+# # #         ans=[]
+# # #         for i in range(len(arr)):
+# # #             per=str(arr[i])
+# # #             rest=arr[:i]+arr[i+1:]
+# # #             for ele in total_permutation(rest):
+# # #                 ans.append(per+ele)
+# # #         return ans
+
+
+            
+
+# # #     def unique_subset(arr):
+# # #         pass
+# # #     def unique_combination(arr):
+# # #         pass
+
+# # # rec=recursion()
+# # # print(rec.total_subset([1,2,3,3]))
+# # # rec.total_combination(0,[1,2,3,3,4],8,[])
+# # # print(rec.output)
+# # # print(rec.total_permutation([1,2,3]))
+
+
+# # # qu=queue.Queue()
+
+# # # qu.put(qu.get)
+
 # # import queue
-
-
-# # class recursion:
-# #     def __init__(self):
-# #         output=[]
-        
-
-# #     def total_subset(self,arr):
-# #         if len(arr)==0:
-# #             return ['']
-# #         first_ele=str(arr[0])
-# #         second_subset=total_subset(arr[1:])
-# #         ans=[]
-# #         for ele in second_subset:
-# #             ans.append(first_ele+ele)
-# #             ans.append(ele)
-# #         return ans
-        
-# #     def total_combination(self,pos,arr,target,ans):
-# #         if target==0 and pos<len(arr):
-# #             output.append(ans)
-# #             return
-# #         if pos>=len(arr) or target<0:
-# #             return 
-        
-# #         total_combination(pos,arr,target-arr[pos],ans+[arr[pos]])
-# #         total_combination(pos+1,arr,target-arr[pos+1],ans+[arr[pos+1]])
-
-
-
-        
-# #     def total_permutation(self,arr):
-# #         if len(arr)==0:
-# #             return [""]
-# #         ans=[]
-# #         for i in range(len(arr)):
-# #             per=str(arr[i])
-# #             rest=arr[:i]+arr[i+1:]
-# #             for ele in total_permutation(rest):
-# #                 ans.append(per+ele)
-# #         return ans
-
-
+# # def deckRevealedIncreasing(deck):
+# #         sorted_deck=sorted(deck)
+# #         qu=queue.Queue()
+# #         qu.
+# #         for i in range(0,len(deck)):qu.put(i)
+# #         for i in range(0,len(deck)):
             
+# #             deck[qu.get()]=sorted_deck[i]
+# #             qu.put(qu.get())
+# #             print(deck)
+# #         print('end')
+# #         return deck
 
-# #     def unique_subset(arr):
-# #         pass
-# #     def unique_combination(arr):
-# #         pass
-
-# # rec=recursion()
-# # print(rec.total_subset([1,2,3,3]))
-# # rec.total_combination(0,[1,2,3,3,4],8,[])
-# # print(rec.output)
-# # print(rec.total_permutation([1,2,3]))
+# # deck=[17,13,11,2,3,5,7]
+# # print(deckRevealedIncreasing(deck))
 
 
-# # qu=queue.Queue()
+# # import heapq
+# # def kMaxSumCombination(a, b, n, k):
+# #      arr=[]
+# # 	 for ele_a in a:for ele_b in b:arr.append(ele_a+ele_b)
+# #     heapq._heapify_max(arr)
+# #     ans=[]
+# #     for i in range(k):
+# #         ans.append(heapq._headpop_max(arr))
+# #     return ans
+# import class_level_wise_trasversal
+# def verti(root,row,col,dic):
+#         if root==None:return
+#         if row not in dic.keys():
+#             dic[row]={}
+#             if col not in dic[row].keys():
+#                 dic[row][col]=[]  
+#         print(row,col)
+#         dic[row][col].append(root.data)
+#         verti(root.left,row-1,col+1,dic)
+#         verti(root.right,row+1,col+1,dic)
+# def verticalTraversal(root):
+#         dic={}
+#         verti(root,0,0,dic)
+#         ans=[]
+#         for key in sorted(dic.keys()):  
+#             for k in key.keys():
+#                 ans.append(sorted(dic[key][k]))
+#         return ans
 
-# # qu.put(qu.get)
 
-# import queue
-# def deckRevealedIncreasing(deck):
-#         sorted_deck=sorted(deck)
-#         qu=queue.Queue()
-#         qu.
-#         for i in range(0,len(deck)):qu.put(i)
-#         for i in range(0,len(deck)):
-            
-#             deck[qu.get()]=sorted_deck[i]
-#             qu.put(qu.get())
-#             print(deck)
-#         print('end')
-#         return deck
+# bt=class_level_wise_trasversal.level_wise_trans()
+# root=bt.input_level_wise()
+# bt.print_tree_levelwise(root)
+# print(verticalTraversal(root))
 
-# deck=[17,13,11,2,3,5,7]
-# print(deckRevealedIncreasing(deck))
+
+
+import queue
+def rearrangeBarcodes(barcodes):
+        qu=queue.Queue()
+        for ele in barcodes:
+            qu.put(ele)
+        ans=[]
+        while qu.empty()!=True:
+            code=qu.get()
+            if len(ans)>0 and ans[-1]==code:
+                qu.put(code)
+            else:
+                print(ans)
+                ans.append(code)
+        return ans
+
+arr=[1,1,1,1,2,2,3,3]
+print(rearrangeBarcodes(arr))
+
 
 
 # import heapq
-# def kMaxSumCombination(a, b, n, k):
-#      arr=[]
-# 	 for ele_a in a:for ele_b in b:arr.append(ele_a+ele_b)
-#     heapq._heapify_max(arr)
-#     ans=[]
-#     for i in range(k):
-#         ans.append(heapq._headpop_max(arr))
-#     return ans
-import class_level_wise_trasversal
-def verti(root,row,col,dic):
-        if root==None:return
-        if row not in dic.keys():
-            dic[row]={}
-            if col not in dic[row].keys():
-                dic[row][col]=[]  
-        print(row,col)
-        dic[row][col].append(root.data)
-        verti(root.left,row-1,col+1,dic)
-        verti(root.right,row+1,col+1,dic)
-def verticalTraversal(root):
-        dic={}
-        verti(root,0,0,dic)
-        ans=[]
-        for key in sorted(dic.keys()):  
-            for k in key.keys():
-                ans.append(sorted(dic[key][k]))
-        return ans
-
-
-bt=class_level_wise_trasversal.level_wise_trans()
-root=bt.input_level_wise()
-bt.print_tree_levelwise(root)
-print(verticalTraversal(root))
+# class Solution:
+#     def largestInteger(self, num: int) -> int:
+#         num=[int(ele) for ele in str(num)]
+#         odd=[]
+#         even=[]
+#     for i in range(len(num)):
+#             if i%2==0:heapq.heappush(even,-num[i])
+#             else:heapq.heappush(odd,-num[i])
+#         ans=0
+#         for i in range(len(num)):
+#             if i%2==0:ans+=-heapq.heappop(even)*(10**i)
+#             else:ans+=-heapq.heappop(odd)*(10**i)
+#         return ans

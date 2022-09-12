@@ -122,13 +122,14 @@ class graph:
         qu=queue.Queue()
         visited=[False for i in range(self.vertex)]
         qu.put(v1)
+        visited[v1]=True
         while qu.empty()!=True:
             vertex=qu.get()
-            visited[vertex]=True
             for i in range(self.vertex):
                 if self.adjMatrix[vertex][i]==1 and visited[i]==False:
                     if i not in dic.keys():dic[i]=vertex
                     qu.put(i)
+                    visited[i]=True
                     if i==v2:break
         ans=[]
         ans.append(v2)
@@ -186,22 +187,22 @@ class graph:
 
 
 
-g=graph(7)
+# g=graph(7)
 # g.addEdge(0,1)
-g.addEdge(0,2)
+# g.addEdge(0,2)
 # g.addEdge(0,3)
-g.addEdge(1,5)
-g.addEdge(2,4)
+# g.addEdge(1,5)
+# g.addEdge(2,4)
 # g.addEdge(5,6)
-g.addEdge(4,6)
-g.printgraph()
-g.dfs()
-print('----*******-----')
-g.bfs()
-print('----****has_path***-----')
-print(g.has_path(5,7))
-print('----****get_path***-----')
+# g.addEdge(4,6)
+# g.printgraph()
+# g.dfs()
+# print('----*******-----')
+# g.bfs()
+# print('----****has_path***-----')
+# print(g.has_path(5,7))
+# print('----****get_path***-----')
 # print(g.dfs_path(0,3))
-# print(g.bfs_get_path(0,3))
-print(g.is_Connected_graph())
-print(g.connected_component())
+# print(g.bfs_get_path(0,5))
+# print(g.is_Connected_graph())
+# print(g.connected_component())
