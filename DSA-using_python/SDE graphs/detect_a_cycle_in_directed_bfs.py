@@ -28,7 +28,7 @@ class directed_graph:
             i+=1
 
 
-def detect_a_cycle_indirected_bfs(adj,vertex):
+def detect_a_cycle_in_directed_bfs(adj,vertex):
     in_degree=[0 for i in range(vertex)]
     for i in range(vertex):
         for j in range(vertex):
@@ -39,15 +39,19 @@ def detect_a_cycle_indirected_bfs(adj,vertex):
         if in_degree[i]==0:
             qu.put(i)
     if qu.empty()==True:return True
-
+    count=0
     while qu.empty()!=True:
-        ele=qu.get()
+        count+=1
+        ele=qu.get() 
         for j in range(vertex):
             if adj[ele][j]==1:
                 in_degree[j]-=1
                 if in_degree[j]==0:qu.put(j)
-    if set(in_degree)=={0}:return False
-    else:return True
+    # if set(in_degree)=={0}:return False  #we can use count variable also
+    # else:return True
+    print(count,vertex)
+    if count==vertex:return False
+    return True
 
 
 
@@ -59,4 +63,4 @@ g.addEdge(3,4)
 g.addEdge(4,0)
 g.addEdge(2,3)
 g.addEdge(4,1)
-print(detect_a_cycle_indirected_bfs(g.adjMatrix,g.vertex))
+print(detect_a_cycle_in_directed_bfs(g.adjMatrix,g.vertex))
