@@ -32,11 +32,12 @@ class directed_graph:
 
 
 def dfs_helper(start,adj,vertex,visited,st):
+    visited[start]=True
     for i in range(vertex):
         if adj[start][i]==1 and visited[i]==False:
             dfs_helper(i,adj,vertex,visited,st)
     st.appendleft(start)
-    visited[start]=True
+    return
 
 def topology_sort_dfs(adj,vertex):
     st=collections.deque()
@@ -51,12 +52,11 @@ def topology_sort_dfs(adj,vertex):
 
 
 
-g=directed_graph(6)
-g.addEdge(5,0)
-g.addEdge(4,0)
-g.addEdge(5,2)
-g.addEdge(4,1)
-g.addEdge(2,3)
-g.addEdge(3,1)
+g=directed_graph(5)
+g.addEdge(0,2)
+g.addEdge(2,1)
+g.addEdge(1,0)
+g.addEdge(1,3)
+g.addEdge(4,3)
 topo=topology_sort_dfs(g.adjMatrix,g.vertex)
 print(topo)
