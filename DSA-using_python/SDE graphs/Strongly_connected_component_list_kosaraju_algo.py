@@ -69,7 +69,7 @@ def dfs_helper(start,adj,vertex_no,visited,ans):
     ans.append(start)
     return
 
-def strongly_connected_component(adj,vertex_no):
+def strongly_connected_component(adj,vertex_no):            ##kosaRaju algo
     topo_sort=losely_topo_sort(adj,vertex_no)
     transpose_grap=transpose_graph(adj,vertex_no)
     print(transpose_grap==adj)
