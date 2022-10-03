@@ -52,9 +52,7 @@ def losely_topo_sort(adj,vertex_no):
 
 
 def transpose_graph(adj,vertex_no):
-    print(adj)
     trans=[[adj[j][i] for j in range(vertex_no)] for i in range(vertex_no)]
-    print(adj)
     return trans
 
 
@@ -72,7 +70,6 @@ def dfs_helper(start,adj,vertex_no,visited,ans):
 def strongly_connected_component(adj,vertex_no):            ##kosaRaju algo
     topo_sort=losely_topo_sort(adj,vertex_no)
     transpose_grap=transpose_graph(adj,vertex_no)
-    print(transpose_grap==adj)
     visited=[False for i in range(vertex_no)]
     for i in topo_sort:
         if visited[i]==False:
