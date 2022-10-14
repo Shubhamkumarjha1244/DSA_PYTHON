@@ -1,3 +1,4 @@
+import collections
 import queue
 
 class BinaryTreeNode:
@@ -42,3 +43,14 @@ class level_wise_trans:
                 print('R:',node.right.data,end='')
                 qu.put(node.right)
             print()
+
+# from sympy import *
+# def min_func(z):
+#     x=sympy.symbols('x')
+#     f=x+(z-(2*x)/3)
+#     return (minimum(f,x))
+
+# t=int(input())
+# for i in range(t):
+#     z=int(input())
+#     print(min_func(z))
