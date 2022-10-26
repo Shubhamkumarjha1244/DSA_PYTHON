@@ -1,7 +1,7 @@
-def max_no_meeting(n,start,end):
+def max_no_meeting(n,start,finish):
     meeting=[]
     for i in range(n):
-        meeting.append((start[i],end[i]))
+        meeting.append((start[i],finish[i]))
     meeting.sort(key=lambda a:a[1])
     end=meeting[0][1]
     ans=1
