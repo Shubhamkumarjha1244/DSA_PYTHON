@@ -149,3 +149,5 @@
 # #             if i%2==0:ans+=-heapq.heappop(even)*(10**i)
 # #             else:ans+=-heapq.heappop(odd)*(10**i)
 # #         return ans
+
+((((bombs[i][0]-dic[key][0])**2)+((bombs[i][1]-dic[key][1])**2)**(1//2)))
