@@ -8,6 +8,7 @@ def lis(st,arr,dp):
                     max_seq=max(max_seq,dp[j])
                 else:
                     lis(j,arr,dp)
+                    print('hi')
                     dp[i]=1+dp[j]
                     max_seq=max(max_seq,dp[j])
         dp[i]=1+max_seq
