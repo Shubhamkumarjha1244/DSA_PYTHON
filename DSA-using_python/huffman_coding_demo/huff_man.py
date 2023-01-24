@@ -8,15 +8,15 @@ class Node:
         self.left=None
         self.right=None
     def __lt__(self,other):
-        return other.count < other.count
+        return self.count < other.count
     
     def __eq__(self,other):
-        return other.count == other.count
+        return self.count == other.count
 
 
 
 
-class huffman_coding(Node):
+class huffman_coding:
     def __init__(self):
         self.Count=None
         self.heap=[]
@@ -24,8 +24,6 @@ class huffman_coding(Node):
         self.encode_txt=''
         self.decode={}
     
-    
-
     def coding(self,root,s):   #for putting new code in freq dic
         if root.count==None:return
         if root.name!=None:
@@ -44,13 +42,20 @@ class huffman_coding(Node):
             node.name=value
             heapq.heappush(self.heap,node)
         
+        
+        
         while len(self.heap)!=1:    #for making Binary Tree
-            big=heapq.heappop(self.heap)
-            small=heapq.heappop(self.heap)
-            sum=big.count+small.count
+            small_1=heapq.heappop(self.heap)
+            small_2=heapq.heappop(self.heap)
+            print(small_1.count,small_2.count)
+            sum=small_1.count+small_2.count
             root=Node(sum)
-            root.left,root.right=big,small
+            root.left=small_2
+            root.right=small_1
             heapq.heappush(self.heap,root)
+        
+
+        
 
         self.coding(self.heap[0],'')  
 
